@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="kahve2019Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="anasayfa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="foto" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="ustBaslik" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="ustIcerik" Type="varchar" MaxLength="6000" Nullable="false" />
+          <Property Name="link" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="altBaslik" Type="char" MaxLength="250" Nullable="false" />
+          <Property Name="altIcerik" Type="varchar" MaxLength="6000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="hakkimizda">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="foto" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="ustBaslik" Type="char" MaxLength="250" Nullable="false" />
+          <Property Name="baslik" Type="char" MaxLength="250" Nullable="false" />
+          <Property Name="icerik" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="iletisimformu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adSoyad" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="eposta" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="mesaj" Type="text" Nullable="false" />
+          <Property Name="cinsiyet" Type="bit" Nullable="false" />
+          <Property Name="izin" Type="bit" Nullable="false" />
+          <Property Name="tarih" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="kullanici">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ad" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="sifre" Type="char" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="magaza">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ustBaslik" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="anaBaslik" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="adres" Type="char" MaxLength="250" Nullable="false" />
+          <Property Name="telefon" Type="char" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="magazasaat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gun" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="saat" Type="char" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="urunler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="foto" Type="char" MaxLength="50" Nullable="false" />
+          <Property Name="baslik" Type="char" MaxLength="250" Nullable="false" />
+          <Property Name="ustBaslik" Type="char" MaxLength="250" Nullable="false" />
+          <Property Name="icerik" Type="text" Nullable="false" />
+          <Property Name="aktif" Type="bit" Nullable="false" />
+          <Property Name="sira" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="kahve2019ModelStoreContainer">
+          <EntitySet Name="anasayfa" EntityType="Self.anasayfa" Schema="kahve2019" store:Type="Tables" />
+          <EntitySet Name="hakkimizda" EntityType="Self.hakkimizda" Schema="kahve2019" store:Type="Tables" />
+          <EntitySet Name="iletisimformu" EntityType="Self.iletisimformu" Schema="kahve2019" store:Type="Tables" />
+          <EntitySet Name="kullanici" EntityType="Self.kullanici" Schema="kahve2019" store:Type="Tables" />
+          <EntitySet Name="magaza" EntityType="Self.magaza" Schema="kahve2019" store:Type="Tables" />
+          <EntitySet Name="magazasaat" EntityType="Self.magazasaat" Schema="kahve2019" store:Type="Tables" />
+          <EntitySet Name="urunler" EntityType="Self.urunler" Schema="kahve2019" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="kahve2019Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="anasayfa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="foto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ustBaslik" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ustIcerik" Type="String" MaxLength="6000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="link" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="altBaslik" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="altIcerik" Type="String" MaxLength="6000" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="kahve2019Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="anasayfa" EntityType="Self.anasayfa" />
+          <EntitySet Name="hakkimizda" EntityType="kahve2019Model.hakkimizda" />
+          <EntitySet Name="magaza" EntityType="kahve2019Model.magaza" />
+          <EntitySet Name="magazasaat" EntityType="kahve2019Model.magazasaat" />
+          <EntitySet Name="kullanici" EntityType="kahve2019Model.kullanici" />
+          <EntitySet Name="iletisimformu" EntityType="kahve2019Model.iletisimformu" />
+          <EntitySet Name="urunler" EntityType="kahve2019Model.urunler" />
+        </EntityContainer>
+        <EntityType Name="hakkimizda">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="foto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ustBaslik" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="baslik" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="icerik" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="magaza">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ustBaslik" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="anaBaslik" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="adres" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="telefon" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="magazasaat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gun" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="saat" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="kullanici">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ad" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sifre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="iletisimformu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adSoyad" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="eposta" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mesaj" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="cinsiyet" Type="Boolean" Nullable="false" />
+          <Property Name="izin" Type="Boolean" Nullable="false" />
+          <Property Name="tarih" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="urunler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="foto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="baslik" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ustBaslik" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="icerik" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="aktif" Type="Boolean" Nullable="false" />
+          <Property Name="sira" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="kahve2019ModelStoreContainer" CdmEntityContainer="kahve2019Entities">
+          <EntitySetMapping Name="anasayfa">
+            <EntityTypeMapping TypeName="kahve2019Model.anasayfa">
+              <MappingFragment StoreEntitySet="anasayfa">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="ustBaslik" ColumnName="ustBaslik" />
+                <ScalarProperty Name="ustIcerik" ColumnName="ustIcerik" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="altBaslik" ColumnName="altBaslik" />
+                <ScalarProperty Name="altIcerik" ColumnName="altIcerik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hakkimizda">
+            <EntityTypeMapping TypeName="kahve2019Model.hakkimizda">
+              <MappingFragment StoreEntitySet="hakkimizda">
+                <ScalarProperty Name="icerik" ColumnName="icerik" />
+                <ScalarProperty Name="baslik" ColumnName="baslik" />
+                <ScalarProperty Name="ustBaslik" ColumnName="ustBaslik" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="magaza">
+            <EntityTypeMapping TypeName="kahve2019Model.magaza">
+              <MappingFragment StoreEntitySet="magaza">
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="anaBaslik" ColumnName="anaBaslik" />
+                <ScalarProperty Name="ustBaslik" ColumnName="ustBaslik" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="magazasaat">
+            <EntityTypeMapping TypeName="kahve2019Model.magazasaat">
+              <MappingFragment StoreEntitySet="magazasaat">
+                <ScalarProperty Name="saat" ColumnName="saat" />
+                <ScalarProperty Name="gun" ColumnName="gun" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kullanici">
+            <EntityTypeMapping TypeName="kahve2019Model.kullanici">
+              <MappingFragment StoreEntitySet="kullanici">
+                <ScalarProperty Name="sifre" ColumnName="sifre" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="iletisimformu">
+            <EntityTypeMapping TypeName="kahve2019Model.iletisimformu">
+              <MappingFragment StoreEntitySet="iletisimformu">
+                <ScalarProperty Name="tarih" ColumnName="tarih" />
+                <ScalarProperty Name="izin" ColumnName="izin" />
+                <ScalarProperty Name="cinsiyet" ColumnName="cinsiyet" />
+                <ScalarProperty Name="mesaj" ColumnName="mesaj" />
+                <ScalarProperty Name="eposta" ColumnName="eposta" />
+                <ScalarProperty Name="adSoyad" ColumnName="adSoyad" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="urunler">
+            <EntityTypeMapping TypeName="kahve2019Model.urunler">
+              <MappingFragment StoreEntitySet="urunler">
+                <ScalarProperty Name="sira" ColumnName="sira" />
+                <ScalarProperty Name="aktif" ColumnName="aktif" />
+                <ScalarProperty Name="icerik" ColumnName="icerik" />
+                <ScalarProperty Name="ustBaslik" ColumnName="ustBaslik" />
+                <ScalarProperty Name="baslik" ColumnName="baslik" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
